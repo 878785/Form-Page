@@ -1,194 +1,194 @@
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-    height: 100vh;
-    background: linear-gradient(135deg, #141e30, #243b55);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(-45deg, #667eea, #764ba2, #ff6a00, #ee0979);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
 }
 
+/* ===== BACKGROUND ANIMATION ===== */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== CONTAINER ===== */
 .container {
-    width: 350px;
-}
-
-.form {
-    background: rgba(255, 255, 255, 0.08);
-    padding: 30px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    color: white;
-}
-
-.form h2 {
+    width: 90%;
+    max-width: 400px;
+    padding: 35px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     text-align: center;
-    margin-bottom: 20px;
+    color: #fff;
+    animation: fadeIn 1s ease;
 }
 
+/* ===== FADE IN ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== TITLE ===== */
+.form h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* ===== INPUT GROUP ===== */
 .input-group {
     position: relative;
-    margin-bottom: 20px;
+    margin: 22px 0;
 }
 
+/* ===== INPUT ===== */
 .input-group input,
 .input-group textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
+    border-radius: 10px;
     border: none;
     outline: none;
-    background: transparent;
-    border-bottom: 2px solid #ccc;
-    color: white;
-    font-size: 16px;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 14px;
+    transition: 0.3s;
 }
 
+/* Glow effect */
+.input-group input:focus,
+.input-group textarea:focus {
+    box-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+/* ===== LABEL ===== */
 .input-group label {
     position: absolute;
-    left: 0;
-    top: 10px;
-    color: #ccc;
-    transition: 0.3s;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #ddd;
+    font-size: 14px;
     pointer-events: none;
+    transition: 0.3s;
 }
 
+/* Floating label */
 .input-group input:focus + label,
 .input-group input:valid + label,
 .input-group textarea:focus + label,
 .input-group textarea:valid + label {
-    top: -10px;
-    font-size: 12px;
-    color: #00ffff;
+    top: -8px;
+    left: 8px;
+    font-size: 11px;
+    background: #764ba2;
+    padding: 2px 6px;
+    border-radius: 6px;
+    color: #fff;
 }
 
+/* ===== BUTTON ===== */
 button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
+    border-radius: 10px;
     border: none;
-    background: #00ffff;
-    color: black;
-    font-size: 16px;
-    border-radius: 25px;
+    background: linear-gradient(45deg, #ff6a00, #ee0979);
+    color: white;
+    font-size: 15px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
+/* Hover */
 button:hover {
-    background: #00cccc;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+/* Click */
+button:active {
+    transform: scale(0.98);
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #333;
-}
-
-.container {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 450px;
-    text-align: center;
-    animation: fadeIn 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-h1, h2 {
-    color: #4a148c;
-    margin-bottom: 25px;
-}
-
-/* Success Icon Animation */
+/* ===== SUCCESS PAGE ===== */
 .success-icon {
-    font-size: 80px;
-    color: #4caf50;
-    margin-bottom: 10px;
+    font-size: 60px;
     display: block;
+    margin-bottom: 10px;
+    animation: pop 0.6s ease;
+}
+
+@keyframes pop {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+h1 {
+    margin-bottom: 10px;
 }
 
 p {
-    margin-bottom: 30px;
-    color: #666;
+    margin-bottom: 20px;
+    font-size: 14px;
 }
 
-/* Common Button & Link Style */
-button, .btn-link {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    background: #764ba2;
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-    text-decoration: none;
+/* ===== LINK BUTTON ===== */
+.btn-link {
     display: inline-block;
-}
-
-button:hover, .btn-link:hover {
-    background: #5e35b1;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
-}
-
-/* Form Styles */
-.input-group {
-    position: relative;
-    margin-bottom: 25px;
-    text-align: left;
-}
-
-.input-group input, .input-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    outline: none;
-    font-size: 16px;
-}
-
-.input-group label {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    color: #999;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #00c9ff, #92fe9d);
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
     transition: 0.3s;
-    pointer-events: none;
 }
 
-.input-group input:focus ~ label,
-.input-group input:valid ~ label,
-.input-group textarea:focus ~ label,
-.input-group textarea:valid ~ label {
-    top: -20px;
-    left: 5px;
-    font-size: 12px;
-    color: #764ba2;
-    font-weight: bold;
+.btn-link:hover {
+    transform: scale(1.05);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 480px) {
+    .container {
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    .form h2 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* ===== TABLET ===== */
+@media (min-width: 768px) {
+    .container {
+        max-width: 450px;
+    }
 }
